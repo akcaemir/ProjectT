@@ -17,7 +17,11 @@
   .row { display: flex; gap: 8px; } .row button { flex: 1; }
   .red { border-color: #e53935 !important; } .blue { border-color: #1e88e5 !important; }
   #stats { font-variant-numeric: tabular-nums; opacity: .8; }
+  html.capture body { display: block; padding: 0; }
+  html.capture #panel { display: none; }
+  html.capture #stage { height: 100vh; width: 100vw; }
 </style>
+<script>if (location.search.includes('capture=1')) document.documentElement.classList.add('capture');</script>
 </head>
 <body>
 <div id="stage">
@@ -38,5 +42,6 @@
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
 </script>
 <script type="module" src="./src/main.js"></script>
+<script type="module" src="./src/bridge.js"></script>
 </body>
 </html>

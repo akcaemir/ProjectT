@@ -1,0 +1,19 @@
+{
+  "name": "projectt",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server/index.js",
+    "mock": "node server/index.js --mock",
+    "record": "node server/index.js --mock --record --seconds 60",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "dotenv": "18.0.10",
+    "puppeteer": "25.17.0",
+    "tiktok-live-connector": "2.5.0",
+    "ws": "8.23.0"
+  }
+}

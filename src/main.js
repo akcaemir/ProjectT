@@ -266,4 +266,6 @@ const nameInput = document.getElementById('name');
 document.querySelectorAll('button[data-t]').forEach((b) =>
   b.addEventListener('click', () => spawn(+b.dataset.t, nameInput.value, +b.dataset.n)));
 document.getElementById('reset').addEventListener('click', () => resetRound(-1));
-window.battle = { spawn, reset: () => resetRound(-1) };   // Phase 2 bridge will call this
+// Likes bonus: reinforce whichever side currently has fewer units
+function support(n = 3) { spawn(alive[0] <= alive[1] ? 0 : 1, '', n, true); }
+window.battle = { spawn, support, reset: () => resetRound(-1) };   // called by src/bridge.js
