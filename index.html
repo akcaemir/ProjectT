@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProjectT – Battle Engine (Phase 1)</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #0b0d11; color: #e6e9ef; font: 14px system-ui, sans-serif; }
+  body { display: flex; gap: 20px; align-items: center; justify-content: center; padding: 8px; box-sizing: border-box; }
+  #stage { position: relative; height: min(96vh, 1280px); aspect-ratio: 9 / 16; }
+  #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #panel { width: 220px; display: flex; flex-direction: column; gap: 8px; }
+  #panel input, #panel button { padding: 8px; border-radius: 6px; border: 1px solid #333a47; background: #1a1f29; color: inherit; font: inherit; }
+  #panel button { cursor: pointer; }
+  #panel button:hover { background: #242b38; }
+  .row { display: flex; gap: 8px; } .row button { flex: 1; }
+  .red { border-color: #e53935 !important; } .blue { border-color: #1e88e5 !important; }
+  #stats { font-variant-numeric: tabular-nums; opacity: .8; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl" width="720" height="1280"></canvas>
+  <canvas id="ui" width="720" height="1280"></canvas>
+</div>
+<div id="panel">
+  <strong>Debug panel</strong>
+  <input id="name" placeholder="viewer name (optional)" maxlength="32">
+  <div class="row"><button class="red" data-t="0" data-n="1">Red +1</button><button class="blue" data-t="1" data-n="1">Blue +1</button></div>
+  <div class="row"><button class="red" data-t="0" data-n="10">Red +10</button><button class="blue" data-t="1" data-n="10">Blue +10</button></div>
+  <button id="reset">Reset round</button>
+  <div id="stats"></div>
+</div>
+
+<!-- Three.js pinned to an exact version -->
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
